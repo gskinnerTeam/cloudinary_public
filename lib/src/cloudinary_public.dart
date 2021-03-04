@@ -65,7 +65,7 @@ class CloudinaryPublic {
     }
 
     FormData formData = FormData.fromMap({
-      'file': file.toMultipartFile() ?? file.url,
+      'file': kIsWeb? file.url : (file.toMultipartFile() ?? file.url),
       'upload_preset': uploadPreset ?? _uploadPreset,
     });
 
